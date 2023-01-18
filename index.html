@@ -7,7 +7,22 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="btn1">Rock</button>
+    <button id="btn2">Paper</button>
+    <button id="btn3">Scissors</button>
+    <div class="cur-score">
+        Player-Score:
+        <div class="player-score">
+            
+        </div>
+        Computer-score:
+        <div class="computer-score">
+            
+        </div>
+    </div>
     <script>
+        const playerscore=document.querySelector('.player-score');
+        const compscore=document.querySelector('.computer-score');
         function getComputerChoice(){
             const randomno=Math.floor(Math.random()*3);
             if(randomno===0){
@@ -52,25 +67,86 @@
         
             let playerpoints=0;
             let computerpoints=0;
-            for(let i=0;i<5;i++){
-                const playerselection=prompt("Choose your option");
-                const computer=getComputerChoice();
-                console.log(playRound(playerselection,computer));
-                if(playRound(playerselection,computer)=="You Lose!"){
+            const playerselection="ntg";
+                const btn1=document.querySelector('#btn1');
+                btn1.addEventListener('click',()=>{
+
+            const computer=getComputerChoice();
+                    const playerselection="rock";
+                    console.log(playRound(playerselection,computer));
+                    if(playRound(playerselection,computer)=="You Lose!"){
                     computerpoints++;
                 }
                 if(playRound(playerselection,computer)=="You Win!"){
                     playerpoints++;
                 }
-        }
-        if(playerpoints>computerpoints){
+                playerscore.innerText=`${playerpoints}`;
+
+                compscore.innerText=`${computerpoints}`;
+                if(playerpoints==5){
             console.log("Congratulations! You beat the computer");
         }
-        else{
+        else if(computerpoints==5){
             console.log("Sorry! You lost...Better luck next time!");
         }
+        
+                });
+                const btn2=document.querySelector('#btn2');
+                btn2.addEventListener('click',()=>{
+
+            const computer=getComputerChoice();
+                    const playerselection="paper";
+                    console.log(playRound(playerselection,computer));
+                    if(playRound(playerselection,computer)=="You Lose!"){
+                    computerpoints++;
+                }
+                if(playRound(playerselection,computer)=="You Win!"){
+                    playerpoints++;
+                }
+                playerscore.innerText=`${playerpoints}`;
+
+                compscore.innerText=`${computerpoints}`;
+                if(playerpoints==5){
+            console.log("Congratulations! You beat the computer");
+        }
+        else if(computerpoints==5){
+            console.log("Sorry! You lost...Better luck next time!");
+        }
+        
+                });
+                const btn3=document.querySelector('#btn3');
+                btn3.addEventListener('click',()=>{
+                    
+            const computer=getComputerChoice();
+                    const playerselection="scissors";
+                    console.log(playRound(playerselection,computer));
+                    if(playRound(playerselection,computer)=="You Lose!"){
+                    computerpoints++;
+                }
+                if(playRound(playerselection,computer)=="You Win!"){
+                    playerpoints++;
+                }
+                playerscore.innerText=`${playerpoints}`;
+
+                compscore.innerText=`${computerpoints}`;
+                if(playerpoints==5){
+            console.log("Congratulations! You beat the computer");
+        }
+        else if(computerpoints==5){
+            console.log("Sorry! You lost...Better luck next time!");
+        }
+        
+                });
+                
+                
+        
+                
+
+        
+
     
     </script>
+
     
 </body>
 </html>
