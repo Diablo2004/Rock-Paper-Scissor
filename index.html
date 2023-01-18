@@ -49,11 +49,27 @@
                 return "You Win!";
             }
         }
-        const playerselection=prompt("Choose your option");
-        const computer=getComputerChoice();
-        for(let i=0;i<5;i++){
-            console.log(playRound(playerselection,computer));
+        
+            let playerpoints=0;
+            let computerpoints=0;
+            for(let i=0;i<5;i++){
+                const playerselection=prompt("Choose your option");
+                const computer=getComputerChoice();
+                console.log(playRound(playerselection,computer));
+                if(playRound(playerselection,computer)=="You Lose!"){
+                    computerpoints++;
+                }
+                if(playRound(playerselection,computer)=="You Win!"){
+                    playerpoints++;
+                }
         }
+        if(playerpoints>computerpoints){
+            console.log("Congratulations! You beat the computer");
+        }
+        else{
+            console.log("Sorry! You lost...Better luck next time!");
+        }
+    
     </script>
     
 </body>
